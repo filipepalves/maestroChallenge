@@ -1,11 +1,11 @@
 appId: com.assesment.orderme
 ---
-- runFlow: subFlows/login.yaml
-- runFlow: subFlows/loginWithFacebook.yaml
+- runFlow: login.yaml
+- runFlow: loginWithFacebook.yaml
 
 - assertVisible: Republique
 - tapOn: Republique
-- runFlow: subFlows/reservation.yaml
+- runFlow: reservation.yaml
 - assertVisible:
     id: qrcode
 - tapOn: Menu
