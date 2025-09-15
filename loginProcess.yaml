@@ -1,0 +1,6 @@
+appId: com.assesment.orderme
+---
+#1 Login Screen
+- runFlow: subFlows/login.yaml
+#2 Facebook login
+- runFlow: subFlows/loginWithFacebook.yaml

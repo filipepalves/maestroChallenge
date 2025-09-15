@@ -1,0 +1,18 @@
+appId: com.assesment.orderme
+---
+- assertVisible:
+    id: 'Reservation'
+- tapOn: 'Reservation'
+- assertVisible: 'Book'
+- tapOn: 'Phone number'
+- inputRandomNumber
+- tapOn: 'Number of people'
+- inputText: '4'
+- scroll
+- tapOn: 'Book'
+- assertVisible:
+    text: Success!
+    index: 1
+- assertVisible: Your table was successfully booked
+- tapOn: OK
+- tapOn: arrow back

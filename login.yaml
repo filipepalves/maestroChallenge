@@ -1,0 +1,6 @@
+appId: com.assesment.orderme
+---
+- launchApp:
+    clearState: true
+- assertVisible: ' Continue with Facebook'
+- assertVisible: 'Login Later'

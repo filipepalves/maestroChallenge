@@ -1,0 +1,17 @@
+appId: com.assesment.orderme
+---
+- runFlow: subFlows/login.yaml
+- runFlow: subFlows/loginWithFacebook.yaml
+
+- assertVisible: Republique
+- tapOn: Republique
+- assertVisible:
+    id: qrcode
+- tapOn: Detect table
+- tapOn: "Table #"
+- inputText: "4"
+- tapOn: Select table
+- assertVisible: "Table #4"
+
+
+

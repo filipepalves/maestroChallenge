@@ -1,0 +1,32 @@
+appId: com.assesment.orderme
+---
+- runFlow: subFlows/login.yaml
+- runFlow: subFlows/loginWithFacebook.yaml
+
+- assertVisible: Republique
+- tapOn: Republique
+- runFlow: subFlows/reservation.yaml
+- assertVisible:
+    id: qrcode
+- tapOn: Menu
+- tapOn: Lasagna
+- assertVisible: TOURNEDOS
+- tapOn: bt plus
+- assertVisible:
+    id: "orderTotal"
+    text: "58.0"
+- tapOn: Bucket
+- assertVisible:
+    id: acceptButton
+- tapOn:
+    id: acceptButton
+- tapOn: OK
+- tapOn: "Table #"
+- inputText: '4'
+- tapOn: Select table
+- tapOn:
+    id: acceptButton
+- assertVisible:
+    text: Success!
+    index: 1
+- assertVisible: Your order was successfully sent to the kitchen

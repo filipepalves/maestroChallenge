@@ -1,0 +1,37 @@
+appId: com.assesment.orderme
+---
+- tapOn:
+    id: facebookLoginButton
+
+- runFlow:
+    when:
+      visible: 'Continue'
+    commands:
+      - tapOn: Continue
+
+- runFlow:
+    when:
+      visible: 'Continue as.*'
+    commands:
+      - tapOn: 'Continue as.*'
+
+- runFlow:
+    when:
+      visible: 'Allow all cookies'
+    commands:
+      - tapOn: 'Allow all cookies'
+      - tapOn: 'Mobile number or email address'
+      - inputText: 'zkpedymhza_1614299001@tfbnw.net'
+      - tapOn: 'Password'
+      - inputText: 'orderme12345'
+      - tapOn:
+          point: 0%, 16%
+          optional: true
+      - tapOn: 'Log in'
+      - runFlow:
+          when:
+            visible: 'Save Password?'
+          commands:
+            - tapOn: 'Save Password'
+
+- assertVisible: 'My reservations'

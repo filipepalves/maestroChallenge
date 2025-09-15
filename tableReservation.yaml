@@ -1,0 +1,32 @@
+appId: com.assesment.orderme
+---
+- runFlow: subFlows/login.yaml
+- runFlow: subFlows/loginWithFacebook.yaml
+
+- assertVisible: Republique
+- tapOn: Republique
+- assertVisible:
+    id: qrcode
+
+#3Make a table reservation with subflow
+- runFlow: subFlows/reservation.yaml
+- assertVisible:
+    text: Success!
+    index: 1
+- assertVisible: Your table was successfully booked
+- tapOn: OK
+- assertNotVisible:
+    text: Success!
+    index: 1
+
+#Verify reservation
+- tapOn: arrow back
+- tapOn: Back 50
+- tapOn: My reservations
+
+- assertVisible: 'Republique'
+
+#Back home and confirm Republique
+- tapOn: My reservations
+- assertVisible: Republique
+- assertVisible: 1615 Cahuenga Blvd, Los Angeles, CA
